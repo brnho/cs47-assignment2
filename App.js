@@ -2,6 +2,9 @@ import AppLoading from 'expo-app-loading';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Themes } from './assets/Themes';
+import Header from './Components/Header';
+import Profile from './Components/Profile';
+import Footer from './Components/Footer';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -17,27 +20,20 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          fontFamily: 'Sydney', // test to see if the font is loaded, feel free to remove this
-        }}>
-        Open up App.js to start working on your app!
-      </Text>
-      <Text
-        style={{
-          fontFamily: 'Sydney-Bold', // test to see if the font is loaded, feel free to remove this
-        }}>
-        ~Good luck~
-      </Text>
+      <Header />
+      <Profile />
+      <Footer />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    height: '100%',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: Themes.light.bg,
+    paddingTop: 40,
+    paddingHorizontal: 30,
   },
 });
